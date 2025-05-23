@@ -1,25 +1,36 @@
-$(document).ready(function () {
+// scripts/rudimentary-arithmetic/basicArithmatics.js
+import { addNumberField } from "../utils/addInputFields.js";
+import { clear } from "../utils/clear.js";
+
+document.addEventListener("DOMContentLoaded", () => {
   let sumNumbers = [];
   let differenceNumbers = [];
   let productNumbers = [];
+  let quotientNumbers = [];
 
-  $("#addInputFieldForSum").on("click", function () {
-    $("#numberInputsSum").append(
-      '<input type="number" class="numberInputSum" />'
-    );
-  });
+  addNumberField(
+    "#addInputFieldForSum",
+    "#numberInputsSum",
+    '<input type="number" class="numberInputSum" />'
+  );
 
-  $("#addInputFieldForSubtract").on("click", function () {
-    $("#numberInputsSubtract").append(
-      '<input type="number" class="numberInputSubtraction" />'
-    );
-  });
+  addNumberField(
+    "#addInputFieldForSubtract",
+    "#numberInputsSubtract",
+    '<input type="number" class="numberInputSubtraction" />'
+  );
 
-  $("#addInputFieldForMulti").on("click", function () {
-    $("#numberInputsMulti").append(
-      '<input type="number" class="numberInputProduct" />'
+  addNumberField(
+    "#addInputFieldForMulti",
+    "#numberInputsMulti",
+    '<input type="number" class="numberInputProduct" />'
+  );
+
+  $("#numberInputsDivide")
+    .empty()
+    .append(
+      '<input type="number" class="numberInputQuotient" /><input type="number" class="numberInputQuotient" />'
     );
-  });
 
   $("#calculateSumButton").on("click", function () {
     sumNumbers = [];
@@ -41,7 +52,7 @@ $(document).ready(function () {
   });
 
   $("#calculateSubButton").on("click", function () {
-    differenceNumbers = []; // clear it first
+    differenceNumbers = [];
     let difference = 0;
     let first = true;
 
@@ -94,6 +105,35 @@ $(document).ready(function () {
     }
   });
 
+  $("#calculateQuotientButton").on("click", function () {
+    quotientNumbers = [];
+    quotient = 0;
+    const $divisionInputs = $("#numberInputsDivide .numberInputQuotient");
+    const num1 = parseFloat($divisionInputs.eq(0).val()); // First input
+    const num2 = parseFloat($divisionInputs.eq(1).val()); // Second input
+
+    if (isNaN(num1) || isNaN(num2)) {
+      $("#result").text("Please enter two valid numbers for division.");
+      return;
+    }
+
+    if (num2 === 0) {
+      $("#result").text("Error: Cannot divide by zero!");
+      return;
+    }
+
+    quotient = num1 / num2;
+    quotientNumbers.push(num1, num2);
+
+    $("#result").text(
+      "Quotient: " +
+        quotient +
+        " (Numbers: " +
+        quotientNumbers.join(" / ") +
+        ")"
+    );
+  });
+
   $("#clearForSum").on("click", function () {
     $("#numberInputsSum")
       .empty()
@@ -101,7 +141,7 @@ $(document).ready(function () {
         '<input type="number" class="numberInputSum" /><input type="number" class="numberInputSum" />'
       );
     sumNumbers = [];
-    $("#result").text("");
+    clear();
   });
 
   $("#clearForSub").on("click", function () {
@@ -111,7 +151,7 @@ $(document).ready(function () {
         '<input type="number" class="numberInputsSubtract" /><input type="number" class="numberInputsSubtract" />'
       );
     differenceNumbers = [];
-    $("#result").text("");
+    clear();
   });
 
   $("#clearForMulti").on("click", function () {
@@ -121,7 +161,17 @@ $(document).ready(function () {
         '<input type="number" class="numberInputProduct" /><input type="number" class="numberInputProduct" />'
       );
     productNumbers = [];
-    $("#result").text("");
+    clear();
+  });
+
+  $("#clearForDivide").on("click", function () {
+    $("#numberInputsDivide")
+      .empty()
+      .append(
+        '<input type="number" class="numberInputQuotient" /><input type="number" class="numberInputQuotient" />'
+      );
+    quotientNumbers = [];
+    clear();
   });
 
   $("#clear").on("click", function () {
@@ -140,9 +190,15 @@ $(document).ready(function () {
       .append(
         '<input type="number" class="numberInputProduct" /><input type="number" class="numberInputProduct" />'
       );
+    $("#numberInputsDivide")
+      .empty()
+      .append(
+        '<input type="number" class="numberInputQuotient" /><input type="number" class="numberInputQuotient" />'
+      );
     sumNumbers = [];
     differenceNumbers = [];
     productNumbers = [];
-    $("#result").text("");
+    quotientNumbers = [];
+    clear();
   });
 });

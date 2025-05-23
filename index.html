@@ -18,6 +18,7 @@
       <div id="basic-arithmatics-container">
         <h2>Basic Arithmatics</h2>
         <button id="close-arithmatics-btn">Close</button>
+
         <calculator-frame-add>
           <input-fields id="numberInputsSum">
             <input type="number" class="numberInputSum" />
@@ -57,6 +58,18 @@
           <button id="addInputFieldForMulti">Add Input Field (Product)</button>
           <button id="calculateProductButton">Calculate Product</button>
           <button id="clearForMulti">Clear (Product)</button>
+        </button-frame>
+
+        <calculator-frame-divide>
+          <input-fields id="numberInputsDivide">
+            <input type="number" class="numberInputQuotient" />
+            <input type="number" class="numberInputQuotient" />
+          </input-fields>
+        </calculator-frame-divide>
+
+        <button-frame>
+          <button id="calculateQuotientButton">Calculate Quotient</button>
+          <button id="clearForDivide">Clear Quotient</button>
         </button-frame>
 
         <div id="result"></div>
@@ -189,7 +202,7 @@
         $("#close-constants-btn").on("click", function () {
           $("#constants-container").slideUp();
         });
-        // You might want a way to close the side panel as well
+
         $(document).on("click", function (event) {
           if (
             !$(event.target).closest("#side-panel").length &&
@@ -201,6 +214,13 @@
         });
       });
     </script>
-    <script src="./rudimentary-arithmetic/basicArithmatics.js"></script>
+    <script
+      type="module"
+      src="./scripts/rudimentary-arithmetic/basicArithmatics.js"
+    ></script>
+    <script
+      type="module"
+      src="./scripts/statistical-formulas/averages.js"
+    ></script>
   </body>
 </html>
