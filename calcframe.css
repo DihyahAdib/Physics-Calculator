@@ -1,0 +1,134 @@
+body {
+    display: flex;
+}
+
+input-fields {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    scroll-snap-type: mandatory;
+    scroll-behavior: smooth;
+
+    input {
+        margin: 6px;
+        padding: 5px;
+        text-align: start;
+        font-size: 22px;
+    }
+
+    p {
+        display: flex;
+    }
+}
+
+button-frame {
+
+    display: flex;
+    flex-grow: 1;
+
+    button {
+        margin: 0px 10px 0px 10px;
+        padding: 2px;
+        width: 160px;
+        height: 50px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
+
+
+#side-panel {
+    width: 0;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+#side-panel button {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.info {
+    border-color: #2196F3;
+    color: dodgerblue
+}
+
+.info:hover {
+    background: #2196F3;
+    color: white;
+}
+
+.success {
+    border-color: #04AA6D;
+    color: green;
+}
+
+.success:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+#main-content {
+    transition: margin-left 0.5s;
+    padding: 16px;
+    width: 100%;
+}
+
+#basic-arithmatics-container,
+#average-formula-container,
+#constants-container {
+    display: none;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.open-btn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    z-index: 2;
+}
+
+.open-btn:hover {
+    background-color: #444;
+}
+
+#close-arithmatics-btn,
+#close-averages-btn,
+#close-constants-btn {
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#close-arithmatics-btn:hover,
+#close-averages-btn:hover,
+#close-constants-btn:hover {
+    background-color: #ccc;
+}

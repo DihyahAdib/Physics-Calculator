@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Physics Calculator</title>
+    <link rel="stylesheet" href="calcframe.css" />
+  </head>
+  <body>
+    <div id="side-panel">
+      <button id="openBasicArithmatics" class="info">Basic Arithmatics</button>
+      <button id="openAverages" class="info">Averages</button>
+      <button id="openConstants" class="success">Constants</button>
+    </div>
+
+    <div id="main-content">
+      <button class="open-btn">&#9776; Open Panel</button>
+
+      <div id="basic-arithmatics-container">
+        <h2>Basic Arithmatics</h2>
+        <button id="close-arithmatics-btn">Close</button>
+        <calculator-frame-add>
+          <input-fields id="numberInputsSum">
+            <input type="number" class="numberInputSum" />
+            <input type="number" class="numberInputSum" />
+          </input-fields>
+        </calculator-frame-add>
+
+        <button-frame>
+          <button id="addInputFieldForSum">Add Input Field (Sum)</button>
+          <button id="calculateSumButton">Calculate Sum</button>
+          <button id="clearForSum">Clear (Sum)</button>
+        </button-frame>
+
+        <calculator-frame-sub>
+          <input-fields id="numberInputsSubtract">
+            <input type="number" class="numberInputSubtraction" />
+            <input type="number" class="numberInputSubtraction" />
+          </input-fields>
+        </calculator-frame-sub>
+
+        <button-frame>
+          <button id="addInputFieldForSubtract">
+            Add Input Field (Difference)
+          </button>
+          <button id="calculateSubButton">Calculate Difference</button>
+          <button id="clearForSub">Clear (Difference)</button>
+        </button-frame>
+
+        <calculator-frame-multi>
+          <input-fields id="numberInputsMulti">
+            <input type="number" class="numberInputProduct" />
+            <input type="number" class="numberInputProduct" />
+          </input-fields>
+        </calculator-frame-multi>
+
+        <button-frame>
+          <button id="addInputFieldForMulti">Add Input Field (Product)</button>
+          <button id="calculateProductButton">Calculate Product</button>
+          <button id="clearForMulti">Clear (Product)</button>
+        </button-frame>
+
+        <div id="result"></div>
+        <button id="clear">Clear All</button>
+      </div>
+
+      <div id="average-formula-container">
+        <h2>Averages</h2>
+        <button id="close-averages-btn">Close</button>
+      </div>
+
+      <div id="constants-container">
+        <h2>Constants [C]</h2>
+        <button id="close-constants-btn">Close</button>
+        <h3>list of known constants in physics 1-2 (University Level)</h3>
+        <table class="constants-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Quantity</th>
+              <th>Value</th>
+              <th>Relative<br />standard<br />uncertainty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><i>c</i></td>
+              <td>Speed of light in vacuum</td>
+              <td>299 792 458 m·s⁻¹</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td><i>h</i></td>
+              <td>Planck constant</td>
+              <td>6.626 070 15 × 10⁻³⁴ J·Hz⁻¹</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td><i>ħ</i> = h/2π</td>
+              <td>Reduced Planck constant</td>
+              <td>1.054 571 817 × 10⁻³⁴ J·s</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>
+                <i>k, k<sub>B</sub></i>
+              </td>
+              <td>Boltzmann constant</td>
+              <td>1.380 649 × 10⁻²³ J·K⁻¹</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td><i>G</i></td>
+              <td>Newtonian constant of gravitation</td>
+              <td>6.674 30(15) × 10⁻¹¹ m³·kg⁻¹·s⁻²</td>
+              <td>2.2 × 10⁻⁵</td>
+            </tr>
+            <tr>
+              <td><i>Λ</i></td>
+              <td>Cosmological constant</td>
+              <td>1.089(29) × 10⁻⁵² m⁻²</td>
+              <td>0.027</td>
+            </tr>
+            <tr>
+              <td><i>σ</i></td>
+              <td>Stefan–Boltzmann constant</td>
+              <td>5.670 374 419 × 10⁻⁸ W·m⁻²·K⁻⁴</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>
+                <i>c<sub>1</sub> = 2πhc²</i>
+              </td>
+              <td>First radiation constant</td>
+              <td>3.741 771 852 × 10⁻¹⁶ W·m²</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <main id="main-text-area">
+        <h1>Physics Calculator</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
+          sapiente? Doloremque saepe aspernatur omnis? Dicta, eaque. Reiciendis
+          velit iure quam architecto, minus, explicabo nobis quisquam voluptates
+          suscipit distinctio placeat ipsa. Ut dolore accusamus enim fugit
+          cupiditate autem dolorem quos ullam asperiores iste recusandae quo
+          magnam sunt voluptate, culpa atque aut laudantium corrupti odio ea
+          quas nostrum sint. Velit, dicta beatae.
+        </p>
+      </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".open-btn").on("click", function () {
+          $("#side-panel").css("width", "250px");
+          $("#main-content").css("marginLeft", "250px");
+        });
+
+        $("#openBasicArithmatics").on("click", function () {
+          $("#basic-arithmatics-container").slideDown();
+          $("#side-panel").css("width", "0");
+          $("#main-content").css("marginLeft", "0");
+        });
+
+        $("#close-arithmatics-btn").on("click", function () {
+          $("#basic-arithmatics-container").slideUp();
+        });
+
+        $("#openAverages").on("click", function () {
+          $("#average-formula-container").slideDown();
+          $("#side-panel").css("width", "0");
+          $("#main-content").css("marginLeft", "0");
+        });
+
+        $("#close-averages-btn").on("click", function () {
+          $("#average-formula-container").slideUp();
+        });
+
+        $("#openConstants").on("click", function () {
+          $("#constants-container").slideDown();
+          $("#side-panel").css("width", "0");
+          $("#main-content").css("marginLeft", "0");
+        });
+
+        $("#close-constants-btn").on("click", function () {
+          $("#constants-container").slideUp();
+        });
+        // You might want a way to close the side panel as well
+        $(document).on("click", function (event) {
+          if (
+            !$(event.target).closest("#side-panel").length &&
+            !$(event.target).hasClass("open-btn")
+          ) {
+            $("#side-panel").css("width", "0");
+            $("#main-content").css("marginLeft", "0");
+          }
+        });
+      });
+    </script>
+    <script src="./rudimentary-arithmetic/basicArithmatics.js"></script>
+  </body>
+</html>
