@@ -107,10 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("#calculateQuotientButton").on("click", function () {
     quotientNumbers = [];
-    quotient = 0;
+    let quotient = 0;
     const $divisionInputs = $("#numberInputsDivide .numberInputQuotient");
-    const num1 = parseFloat($divisionInputs.eq(0).val()); // First input
-    const num2 = parseFloat($divisionInputs.eq(1).val()); // Second input
+    const num1 = parseFloat($divisionInputs.eq(0).val());
+    const num2 = parseFloat($divisionInputs.eq(1).val());
 
     if (isNaN(num1) || isNaN(num2)) {
       $("#result").text("Please enter two valid numbers for division.");

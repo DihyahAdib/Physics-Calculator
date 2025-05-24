@@ -23,16 +23,39 @@ input-fields {
 button-frame {
 
     display: flex;
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    justify-content: center;
+    flex-direction: column;
 
     button {
-        margin: 0px 10px 0px 10px;
-        padding: 2px;
-        width: 160px;
-        height: 50px;
-        border-radius: 10px;
+        color: #090909;
+        margin: 0.4em 0.1em;
+        padding: 0.7em 1.7em;
+        font-size: 18px;
+        border-radius: 0.5em;
+        background: #e8e8e8;
         cursor: pointer;
+        border: 1px solid #e8e8e8;
+        transition: all 0.3s;
+        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
     }
+
+    button:hover {
+        border: 1px solid white;
+    }
+
+    button:active {
+        box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+    }
+}
+
+#clear {
+    margin: 0px 10px 0px 10px;
+    padding: 2px;
+    width: 160px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 
@@ -87,6 +110,10 @@ button-frame {
     width: 100%;
 }
 
+#basic-arithmatics-container {
+    background-color: #c5c5c51f;
+}
+
 #basic-arithmatics-container,
 #average-formula-container,
 #constants-container {
@@ -94,7 +121,10 @@ button-frame {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 15px;
-    background-color: #fff;
+
+    h2 {
+        font-size: 35px;
+    }
 }
 
 .open-btn {
